@@ -1,0 +1,35 @@
+type Mutation {
+    createBook(bookRequest: BookRequest) : DataResponse
+}
+
+type DataResponse {
+    data: Book
+    status: Response
+}
+
+type Response {
+    code: String
+    description: String
+    message: String
+}
+input BookRequest {
+    title: String
+    description: String
+    author: String
+    price: Float
+    pages: Int
+}
+
+type Query {
+    getAllBook : [Book]
+    getBook(id: Int): Book
+}
+
+type Book {
+    id: ID!
+    title: String
+    description: String
+    author: String
+    price: Float
+    pages: Int
+}
